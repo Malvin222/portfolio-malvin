@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 @Repository
 class PresentationRepository(
     private val achievementRepository: AchievementRepository,
-    private val experienceRepository: ExperienceRepository
+    private val experienceRepository: ExperienceRepository,
     private val introductionRepository: IntroductionRepository,
     private val projectRepository: ProjectRepository,
     private val linkRepository: LinkRepository,
