@@ -34,7 +34,7 @@ class DataInitializer(
                 title = "정보처리기사",
                 description = "자료구조, 운영체제, 알고리즘, 데이터베이스등",
                 host = "한국산업인력공단",
-                achievedDate = LocalDate.of(2022, 8, 1),
+                achievedDate = LocalDate.of(2024, 9, 1),
                 isActive = true
             )
         )
@@ -88,11 +88,11 @@ class DataInitializer(
         val java = Skill(name = "Java", type = SkillType.LANGUAGE.name, isActive = true)
         val kotlin = Skill(name = "Kotlin", type = SkillType.LANGUAGE.name, isActive = true)
         val python = Skill(name = "Python", type = SkillType.LANGUAGE.name, isActive = true)
-        val spring = Skill(name = "Spring", type = SkillType.LANGUAGE.name, isActive = true)
-        val django = Skill(name = "Django", type = SkillType.LANGUAGE.name, isActive = true)
-        val mysql = Skill(name = "Mysql", type = SkillType.LANGUAGE.name, isActive = true)
-        val redis = Skill(name = "Redis", type = SkillType.LANGUAGE.name, isActive = true)
-        val kafka = Skill(name = "Kafka", type = SkillType.LANGUAGE.name, isActive = true)
+        val spring = Skill(name = "Spring", type = SkillType.FRAMEWORK.name, isActive = true)
+        val django = Skill(name = "Django", type = SkillType.FRAMEWORK.name, isActive = true)
+        val mysql = Skill(name = "Mysql", type = SkillType.DATABASE.name, isActive = true)
+        val redis = Skill(name = "Redis", type = SkillType.DATABASE.name, isActive = true)
+        val kafka = Skill(name = "Kafka", type = SkillType.TOOL.name, isActive = true)
         skillRepository.saveAll(mutableListOf(java, kotlin, python, spring, django, mysql, redis, kafka))
 
         val project1 = Project(
