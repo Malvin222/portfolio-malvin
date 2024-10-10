@@ -13,7 +13,7 @@ class ProjectDTO(
     constructor(project: Project) : this(
         name = project.name,
         description = project.description,
-        startYearMonth = "${project.startYear}.${project.startMonth}}",
+        startYearMonth = "${project.startYear}.${project.startMonth}",
         endYearMonth = project.getEndYearMonth(),
         details = project.details.filter { it.isActive }.map { ProjectDetailDTO(it) },
         skills = project.skills.map { it.skill }.filter { it.isActive }.map { SkillDTO(it) }
