@@ -31,7 +31,7 @@ class AdminInterceptor : HandlerInterceptor {
                 )
             ),
             MenuDTO(
-                name = "Index",
+                name = "Project",
                 pages = listOf<PageDTO>(
                     PageDTO(name = "Project", url = "/admin/project"),
                     PageDTO(name = "ProjectSkill", url = "/admin/project/skill")
