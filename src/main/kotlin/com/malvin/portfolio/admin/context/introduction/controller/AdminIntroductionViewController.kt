@@ -28,7 +28,7 @@ class AdminIntroductionViewController(
 
         val pageAttributes = mutableMapOf<String, Any>(
             Pair("menuName", "Index"),
-            Pair("pageName", "table.name"),
+            Pair("pageName", table.name),
             Pair("editable", "true"),
             Pair("deletable", "false"),
             Pair("hasDetails", "false")
