@@ -52,7 +52,7 @@ class Project(
     }
 
     fun update(
-        title: String,
+        name: String,
         description: String,
         startYear: Int,
         startMonth: Int,
