@@ -24,7 +24,7 @@ class AdminProjectService(
     fun getProjectDetailTable(id: Long?): TableDTO {
         val classInfo = ProjectDetail::class
         val entities = if (id != null) projectRepository.findById(id)
-            .orElseThrow { throw AdminBadRequestException("ID ${id}에 해당하는 데이터를 찾을 수가 없습니다.") }
+            .orElseThrow { throw AdminBadRequestException("ID ${id}에 해당하는 데이터를 찾을 수 없습니다.") }
             .details else emptyList()
 
         return TableDTO.from(classInfo, entities)
@@ -32,9 +32,11 @@ class AdminProjectService(
 
     @Transactional
     fun save(form: ProjectForm) {
+
         val projectDetails = form.details
             ?.map { detail -> detail.toEntity() }
             ?.toMutableList()
+
         val project = form.toEntity()
         project.addDetails(projectDetails)
 
@@ -43,6 +45,7 @@ class AdminProjectService(
 
     @Transactional
     fun update(id: Long, form: ProjectForm) {
+
         val project = projectRepository.findById(id)
             .orElseThrow { throw AdminBadRequestException("ID ${id}에 해당하는 데이터를 찾을 수 없습니다.") }
 

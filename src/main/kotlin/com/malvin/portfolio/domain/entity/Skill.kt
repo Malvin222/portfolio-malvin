@@ -4,11 +4,7 @@ import com.malvin.portfolio.domain.constant.SkillType
 import jakarta.persistence.*
 
 @Entity
-class Skill(
-    name: String,
-    type: String,
-    isActive: Boolean
-) : BaseEntity() {
+class Skill(name: String, type: String, isActive: Boolean) : BaseEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

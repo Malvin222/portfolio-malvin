@@ -29,14 +29,15 @@ class AdminExperienceViewController(
         )
         model.addAttribute("formElements", formElements)
 
-        val detailFormElement = listOf<FormElementDTO>(
+        val detailFormElements = listOf<FormElementDTO>(
             TextFormElementDTO("content", 10),
             SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("detailFormElements", detailFormElement)
+        model.addAttribute("detailFormElements", detailFormElements)
 
         val table = adminExperienceService.getExperienceTable()
         model.addAttribute("table", table)
+
 
         val detailTable = adminExperienceService.getExperienceDetailTable(null)
         model.addAttribute("detailTable", detailTable)
@@ -44,9 +45,9 @@ class AdminExperienceViewController(
         val pageAttributes = mutableMapOf<String, Any>(
             Pair("menuName", "Resume"),
             Pair("pageName", table.name),
-            Pair("editable", "true"),
-            Pair("deletable", "false"),
-            Pair("hasDetails", "true")
+            Pair("editable", true),
+            Pair("deletable", false),
+            Pair("hasDetails", true),
         )
         model.addAllAttributes(pageAttributes)
 

@@ -13,7 +13,7 @@ class AdminAchievementApiController(
     private val adminAchievementService: AdminAchievementService
 ) {
     @PostMapping
-    fun PostAchievement(@RequestBody @Validated form: AchievementForm): ResponseEntity<Any> {
+    fun postAchievement(@RequestBody @Validated form: AchievementForm): ResponseEntity<Any> {
         adminAchievementService.save(form)
 
         return ApiResponse.successCreate()

@@ -32,11 +32,7 @@ class Project(
 
     var isActive: Boolean = isActive
 
-    @OneToMany(
-        targetEntity = ProjectDetail::class,
-        fetch = FetchType.LAZY,
-        cascade = [CascadeType.ALL]
-    )
+    @OneToMany(targetEntity = ProjectDetail::class, fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST])
     @JoinColumn(name = "project_id")
     var details: MutableList<ProjectDetail> = mutableListOf()
 
@@ -60,6 +56,7 @@ class Project(
         endMonth: Int?,
         isActive: Boolean
     ) {
+        this.name = name
         this.description = description
         this.startYear = startYear
         this.startMonth = startMonth

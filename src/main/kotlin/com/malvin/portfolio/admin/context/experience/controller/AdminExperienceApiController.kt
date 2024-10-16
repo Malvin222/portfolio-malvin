@@ -14,7 +14,7 @@ class AdminExperienceApiController(
     private val adminExperienceService: AdminExperienceService
 ) {
     @PostMapping
-    fun PostExperience(@RequestBody @Validated form: ExperienceForm): ResponseEntity<Any> {
+    fun postExperience(@RequestBody @Validated form: ExperienceForm): ResponseEntity<Any> {
         adminExperienceService.save(form)
 
         return ApiResponse.successCreate()

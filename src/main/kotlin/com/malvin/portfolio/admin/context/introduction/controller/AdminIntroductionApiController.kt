@@ -13,7 +13,7 @@ class AdminIntroductionApiController(
     private val adminIntroductionService: AdminIntroductionService
 ) {
     @PostMapping
-    fun PostIntroduction(@RequestBody @Validated form: IntroductionForm): ResponseEntity<Any> {
+    fun postIntroduction(@RequestBody @Validated form: IntroductionForm): ResponseEntity<Any> {
         adminIntroductionService.save(form)
 
         return ApiResponse.successCreate()

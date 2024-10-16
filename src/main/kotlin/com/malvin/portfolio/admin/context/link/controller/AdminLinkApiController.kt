@@ -13,7 +13,7 @@ class AdminLinkApiController(
     private val adminLinkService: AdminLinkService
 ) {
     @PostMapping
-    fun PostLink(@RequestBody @Validated form: LinkForm): ResponseEntity<Any> {
+    fun postLink(@RequestBody @Validated form: LinkForm): ResponseEntity<Any> {
         adminLinkService.save(form)
 
         return ApiResponse.successCreate()

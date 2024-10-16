@@ -2,19 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <aside id="sidebar" class="sidebar" th:fragment="sidebar">
+
     <ul class="sidebar-nav" id="sidebar-nav">
+
         <li class="nav-item">
-            <a class="nav-link" href="index.html" th:href="@{/admin}" th:classappend="${'Dashboard' != pageName} ? 'collapsed'">
+            <a class="nav-link" href="index.html" th:href="@{/admin}"
+               th:classappend="${'Dashboard' != pageName} ? 'collapsed'">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
+
         <li class="nav-heading">Pages</li>
+
         <li class="nav-item" th:each="menu : ${menus}">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
-               href="#" th:attr="data-bs-target='#'+${#strings.toLowerCase(menu.name)}+'-nav'">
-                <i class="bi bi-layout-text-window-reverse"></i><span
-                    th:text="${menu.name}">Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"
+               th:attr="data-bs-target='#'+${#strings.toLowerCase(menu.name)}+'-nav'">
+                <i class="bi bi-layout-text-window-reverse"></i><span th:text="${menu.name}">Tables</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav"
                 th:classappend="${menu.name == menuName} ? 'show'" th:id="${#strings.toLowerCase(menu.name)}+'-nav'">
@@ -26,7 +31,9 @@
                 </li>
             </ul>
         </li><!-- End Tables Nav -->
+
     </ul>
+
 </aside><!-- End Sidebar-->
 </body>
 </html>

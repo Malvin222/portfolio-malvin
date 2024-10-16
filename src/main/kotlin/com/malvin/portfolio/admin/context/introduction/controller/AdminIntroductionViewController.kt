@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping
 class AdminIntroductionViewController(
     private val adminIntroductionService: AdminIntroductionService
 ) {
+
     @GetMapping
     fun introduction(model: Model): String {
+
         val formElements = listOf<FormElementDTO>(
             TextFormElementDTO("content", 10),
             SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
@@ -29,11 +31,12 @@ class AdminIntroductionViewController(
         val pageAttributes = mutableMapOf<String, Any>(
             Pair("menuName", "Index"),
             Pair("pageName", table.name),
-            Pair("editable", "true"),
-            Pair("deletable", "false"),
-            Pair("hasDetails", "false")
+            Pair("editable", true),
+            Pair("deletable", false),
+            Pair("hasDetails", false),
         )
         model.addAllAttributes(pageAttributes)
+
         return "admin/page-table"
     }
 }

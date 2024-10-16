@@ -30,9 +30,9 @@ class AdminLinkViewController(
         val pageAttributes = mutableMapOf<String, Any>(
             Pair("menuName", "Index"),
             Pair("pageName", table.name),
-            Pair("editable", "true"),
-            Pair("deletable", "false"),
-            Pair("hasDetails", "false")
+            Pair("editable", true),
+            Pair("deletable", false),
+            Pair("hasDetails", false)
         )
         model.addAllAttributes(pageAttributes)
         return "admin/page-table"

@@ -8,5 +8,6 @@ data class ProjectSkillForm(
     val project: String,
 
     @field:NotBlank(message = "필수값입니다.")
-    val Skill: String
+    val skill: String
+
 )

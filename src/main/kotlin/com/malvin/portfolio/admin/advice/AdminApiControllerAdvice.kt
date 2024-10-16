@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 
 @RestControllerAdvice
 class AdminApiControllerAdvice {
+
     val log = LoggerFactory.getLogger(AdminApiControllerAdvice::class.java)
 
     @ExceptionHandler
@@ -23,7 +24,7 @@ class AdminApiControllerAdvice {
         log.info(e.message, e)
 
         val fieldError = e.bindingResult.fieldErrors[0]
-        val message = "[${fieldError.field} ${fieldError.defaultMessage}]"
+        val message = "[${fieldError.field}] ${fieldError.defaultMessage}"
 
         return ResponseEntity.badRequest().body(message)
     }
@@ -34,5 +35,4 @@ class AdminApiControllerAdvice {
 
         return ResponseEntity.internalServerError().body("시스템 오류가 발생했습니다.")
     }
-
 }

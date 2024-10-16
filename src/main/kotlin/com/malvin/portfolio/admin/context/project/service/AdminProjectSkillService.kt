@@ -20,6 +20,7 @@ class AdminProjectSkillService(
 
     @Transactional
     fun getProjectSkillTable(): TableDTO {
+
         val projects = projectRepository.findAll()
         val columns = mutableListOf<String>(
             "id", "projectId", "projectName", "skillId", "skillName",
@@ -51,21 +52,24 @@ class AdminProjectSkillService(
 
     fun getSkillList(): List<String> {
         val skills = skillRepository.findAll()
+
         return skills.map { "${it.id} (${it.name})" }.toList()
     }
 
     @Transactional
     fun save(form: ProjectSkillForm) {
-        //"id (name)"
-        val projectId = parseId(form.project)
-        val skillId = parseId(form.Skill)
-        projectSkillRepository.findByProjectIdAndSkillId(projectId, skillId)
-            .ifPresent { throw AdminBadRequestException("이미 맵핑된 데이터입니다.") }
 
+        // 이미 매핑된 Project - Skill 여부 검증
+        val projectId = parseId(form.project)
+        val skillId = parseId(form.skill)
+        projectSkillRepository.findByProjectIdAndSkillId(projectId, skillId)
+            .ifPresent { throw AdminBadRequestException("이미 매핑된 데이터입니다.") }
+
+        // 유효한 ProjectSkill 생성
         val project = projectRepository.findById(projectId)
-            .orElseThrow { throw AdminBadRequestException("ID ${projectId}에 해당하는 데이터를 찾을 수가 없습니다.") }
+            .orElseThrow { throw AdminBadRequestException("ID ${projectId}에 해당하는 데이터를 찾을 수 없습니다.") }
         val skill = skillRepository.findById(skillId)
-            .orElseThrow { throw AdminBadRequestException("ID ${skillId}에 해당하는 데이터를 찾을 수가 없습니다.") }
+            .orElseThrow { throw AdminBadRequestException("ID ${skillId}에 해당하는 데이터를 찾을 수 없습니다.") }
         val projectSkill = ProjectSkill(
             project = project,
             skill = skill

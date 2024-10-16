@@ -13,7 +13,7 @@ class AdminProjectSkillApiController(
     private val adminProjectSkillService: AdminProjectSkillService
 ) {
     @PostMapping
-    fun PostProjectSkill(@RequestBody @Validated form: ProjectSkillForm): ResponseEntity<Any> {
+    fun postProjectSkill(@RequestBody @Validated form: ProjectSkillForm): ResponseEntity<Any> {
         adminProjectSkillService.save(form)
 
         return ApiResponse.successCreate()
