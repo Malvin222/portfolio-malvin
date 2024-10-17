@@ -33,7 +33,7 @@
                             </button>
                         </div>
                         <div class="row modalDetail mt-3">
-                            <div th:class="|col-md-2 ${pageName}ModalFormElement|">
+                            <div th:class="|col-md-2 ${pageName}ModalDetailFormElement|">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="id" placeholder="id" name="id" readonly>
                                     <label for="id">id</label>
@@ -50,7 +50,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" th:text="닫기">Close</button>
-                <button type="button" class="btn btn-primary" th:text="수정" th:onclick="completeEdit">Save changes
+                <button type="button" class="btn btn-primary" th:text="수정" th:onclick="completeEdit()">Save changes
                 </button>
             </div>
         </div>
