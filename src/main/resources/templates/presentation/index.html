@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" th:replace="~{presentation/layouts/layout-main :: layout(~{::#content})}">
+
 <main class="flex-shrink-0" id="content">
+
     <!-- Header-->
-    <header class="py-5" th:fragment="head">
+    <header class="py-5">
         <div class="container px-5 pb-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-xxl-5">
@@ -21,15 +23,11 @@
                     <!-- Header profile picture-->
                     <div class="d-flex justify-content-center mt-5 mt-xxl-0">
                         <div class="profile bg-gradient-primary-to-secondary">
-                            <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                            <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                            <img class="profile-img" src="assets/profile-malvin.png" alt="..." />
-                            <div th:replace="~{/presentation/fragments/fragment-dots :: dots1}"></div>
-                            <div th:replace="~{/presentation/fragments/fragment-dots :: dots2}"></div>
-                            <div th:replace="~{/presentation/fragments/fragment-dots :: dots3}"></div>
-                            <div th:replace="~{/presentation/fragments/fragment-dots :: dots4}"></div>
-                            <!-- END of SVG dots-->
-                            </div>
+                            <img class="profile-img" src="assets/profile-yongback.png" alt="..." />
+                            <div th:replace="~{presentation/fragments/fragment-dots :: dots1}"></div>
+                            <div th:replace="~{presentation/fragments/fragment-dots :: dots2}"></div>
+                            <div th:replace="~{presentation/fragments/fragment-dots :: dots3}"></div>
+                            <div th:replace="~{presentation/fragments/fragment-dots :: dots4}"></div>
                         </div>
                     </div>
                 </div>
@@ -45,8 +43,9 @@
                         <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">저는</span></h2>
                         <p class="mb-4"></p>
                         <p class="text-muted" th:each="introduction : ${introductions}" th:text="${introduction.content}">Lorem ipsum dolor sit amet</p>
+
                         <div class="d-flex justify-content-center fs-2 gap-4">
-                            <a class="text-gradient" href="#!" target="_blank" th:each="link : ${links}" th:href="${link.content}"><i class="bi bi-twitter" th:class="|bi bi-${link.name}|"></i></a>
+                            <a class="text-gradient" href="#!" target="_blank" th:each="link : ${links}" th:href="${link.content}"><i class="bi bi-github" th:class="|bi bi-${link.name}|"></i></a>
                         </div>
                     </div>
                 </div>
@@ -54,4 +53,5 @@
         </div>
     </section>
 </main>
+
 </html>
