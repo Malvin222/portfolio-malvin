@@ -25,128 +25,139 @@ class DataInitializer(
 
         val achievements = mutableListOf<Achievement>(
             Achievement(
-                title = "2022 Catkao 해커톤 최우수상",
-                description = "고양이 쇼핑몰 검색 서비스의 아키텍쳐, 데이터 모델링",
-                host = "캣카오",
-                achievedDate = LocalDate.of(2022, 8, 1),
-                isActive = true
-            ),
-            Achievement(
                 title = "정보처리기사",
                 description = "자료구조, 운영체제, 알고리즘, 데이터베이스등",
                 host = "한국산업인력공단",
-                achievedDate = LocalDate.of(2024, 9, 1),
+                achievedDate = LocalDate.of(2024, 9, 10),
+                isActive = true
+            ),
+            Achievement(
+                title = "SQLD",
+                description = "SQL 기본문법, 데이터베이스 설계, 데이터베이스 성능 최적화등",
+                host = "한국데이터산업진흥원",
+                achievedDate = LocalDate.of(2024, 4, 5),
+                isActive = true
+            ),
+            Achievement(
+                title = "리눅스마스터2급",
+                description = "리눅스 시스템 기초, 시스템관리, 보안 및 네트워크",
+                host = "한국정보통신진흥원",
+                achievedDate = LocalDate.of(2024, 10, 4),
+                isActive = true
+            ),
+            Achievement(
+                title = " 국비학원 프로젝트 발표회 최우수상",
+                description = "여행정보 사이트 설계, 구축",
+                host = "국비학원",
+                achievedDate = LocalDate.of(2023, 9, 1),
                 isActive = true
             )
         )
         achievementRepository.saveAll(achievements)
 
         val introductions = mutableListOf<Introduction>(
-            Introduction(content = "주도적으로 문제를 찾고, 해결하는 고양이입니다.", isActive = true),
-            Introduction(content = "기술을 위한 기술이 아닌, 비즈니스 문제를 풀기 위한 기술을 추구합니다.", isActive = true),
-            Introduction(content = "기존 소스를 리팩토링하여 더 좋은 구조로 개선하는 작업을 좋아합니다.", isActive = true)
+            Introduction(content = "꾸준한 학습으로 지속적으로 성장하는 개발자 입니다.", isActive = true),
+            Introduction(content = "팀원들과 정보를 공유하여 같이 성장하는 것을 추구합니다.", isActive = true),
+            Introduction(content = "단순 개발보단 비즈니스적 로직을 생각해보고 효율적으로 개발하는 것을 좋아합니다.", isActive = true)
         )
         introductionRepository.saveAll(introductions)
 
         val links = mutableListOf<Link>(
             Link(name = "Github", content = "https://github.com/malvin222", isActive = true),
-            Link(name = "Linkedin", content = "https://www.linkedin/malvin222", isActive = true)
         )
         linkRepository.saveAll(links)
 
         val experience1 = Experience(
-            title = "캣홀릭대학교(CatHolic Univ.)",
-            description = "컴퓨터공학 전공",
-            startYear = 2018,
-            startMonth = 9,
-            endYear = 2022,
-            endMonth = 8,
+            title = "000대학교",
+            description = "의생명과학과 전공",
+            startYear = 2011,
+            startMonth = 3,
+            endYear = 2017,
+            endMonth = 2,
             isActive = true
         )
         experience1.addDetails(
             mutableListOf(
-                ExperienceDetail(content = "GPA 4.3/4.5", isActive = true),
-                ExperienceDetail(content = "소프트웨어 연구 학회 활동", isActive = true)
+                ExperienceDetail(content = "GPA 00/4.5", isActive = true),
+                ExperienceDetail(content = "총학생회 임원", isActive = true)
             )
         )
         val experience2 = Experience(
             title = "주식회사 캣카오(Catkao Corp.)",
-            description = "소셜서비스팀 백엔드 개발자",
-            startYear = 2022,
-            startMonth = 9,
+            description = "웹개발팀 개발자",
+            startYear = 2024,
+            startMonth = 4,
             endYear = null,
             endMonth = null,
             isActive = true
         )
         experience2.addDetails(
             mutableListOf(
-                ExperienceDetail(content = "유기묘 위치 공유 서비스 개발", isActive = true),
-                ExperienceDetail(content = "신입 교육 프로그램 우수상 수상", isActive = true)
+                ExperienceDetail(content = "라이선스 관리 백오피스 페이지 개발", isActive = true),
             )
         )
         experienceRepository.saveAll(mutableListOf(experience1, experience2))
 
         val java = Skill(name = "Java", type = SkillType.LANGUAGE.name, isActive = true)
-        val kotlin = Skill(name = "Kotlin", type = SkillType.LANGUAGE.name, isActive = true)
-        val python = Skill(name = "Python", type = SkillType.LANGUAGE.name, isActive = true)
         val spring = Skill(name = "Spring", type = SkillType.FRAMEWORK.name, isActive = true)
-        val django = Skill(name = "Django", type = SkillType.FRAMEWORK.name, isActive = true)
+        val eGovFrame = Skill(name = "eGovFrame", type = SkillType.FRAMEWORK.name, isActive = true)
         val mysql = Skill(name = "Mysql", type = SkillType.DATABASE.name, isActive = true)
-        val redis = Skill(name = "Redis", type = SkillType.DATABASE.name, isActive = true)
-        val kafka = Skill(name = "Kafka", type = SkillType.TOOL.name, isActive = true)
-        skillRepository.saveAll(mutableListOf(java, kotlin, python, spring, django, mysql, redis, kafka))
+        val oracle = Skill(name = "Oracle", type = SkillType.DATABASE.name, isActive = true)
+        val git = Skill(name = "Git", type = SkillType.TOOL.name, isActive = true)
+        val svn = Skill(name = "Svn", type = SkillType.TOOL.name, isActive = true)
+        skillRepository.saveAll(mutableListOf(java, spring, mysql, oracle, eGovFrame, git, svn))
 
         val project1 = Project(
-            name = "유기묘 발견 정보 공유 서비스",
-            description = "유기묘 위치의 실시간 공요, 임시보호까지 연결해주는 서비스. 구글 맵스를 연동하여 유기묘 위치정보를 파악",
-            startYear = 2022,
-            startMonth = 9,
-            endYear = 2022,
-            endMonth = 12,
+            name = "여행 정보 사이트",
+            description = "공공 api를 활용한 국내 여행지 및 식당 정보, 카카오맵를 활용한 여행지 지도, 패키지 여행게시판 ",
+            startYear = 2023,
+            startMonth = 8,
+            endYear = 2023,
+            endMonth = 9,
             isActive = true
         )
         project1.addDetails(
             mutableListOf(
-                ProjectDetail(content = "구글 맵스를 활용한 유기묘 발견 지역 정보 제공 API 개발", url = null, isActive = true),
-                ProjectDetail(content = "Redis 적용하여 인기 게시글의 조회 속도 1.5초 -> 0.5초로 개선", url = null, isActive = true),
-            )
+                ProjectDetail(content = "카카오 맵 API를 활용한 여행지 위치 정보 조회", url = null, isActive = true),
+                ProjectDetail(content = "패키지 게시판 사업자 등록을 위한 사업자 등록번호 조회", url = null, isActive = true),
+                ProjectDetail(content = "Github Repository", url = "https://github.com/Malvin222/Project_HITRIP", isActive = true)
+                )
         )
         project1.skills.addAll(
             mutableListOf(
                 ProjectSkill(project = project1, skill = java),
-                ProjectSkill(project = project1, skill = spring),
-                ProjectSkill(project = project1, skill = mysql),
-                ProjectSkill(project = project1, skill = redis),
+                ProjectSkill(project = project1, skill = eGovFrame),
+                ProjectSkill(project = project1, skill = oracle),
             )
         )
         val project2 = Project(
-            name = "반려동물 홈 카메라 움직임 감지 분석 모듈",
-            description = "카메라에서 서버로 전달되는 신호를 분석하여 움직임이 감지될 경우 클라이언트에게 알림 발송 작업.",
-            startYear = 2022,
-            startMonth = 12,
-            endYear = null,
-            endMonth = null,
+            name = "물품 대여 사이트",
+            description = "대여된 물품의 AS 예약을 위한 사이트",
+            startYear = 2023,
+            startMonth = 11,
+            endYear = 2023,
+            endMonth = 12,
             isActive = true
         )
         project2.addDetails(
             mutableListOf(
-                ProjectDetail(content = "PIL(Pillow) 활용하여 이미지 분석 기능 개발", url = null, isActive = true),
-                ProjectDetail(content = "알림 발송을 비동기 처리하여 이미지 분석 - 알림 발송 기능간 의존도 감소", url = null, isActive = true),
-                ProjectDetail(content = "Github Repository", url = "https://github.com/malvin222", isActive = true)
+                ProjectDetail(content = "풀캘린더 라이브러리를 이용한 달력 기능 및 일정저장", url = null, isActive = true),
+                ProjectDetail(content = "카카오 채널API를 사용한 카카오 채널상담", url = null, isActive = true),
+                ProjectDetail(content = "Github Repository", url = "https://github.com/Malvin222/Rental_Web", isActive = true)
             )
         )
         project2.skills.addAll(
             mutableListOf(
-                ProjectSkill(project = project2, skill = python),
-                ProjectSkill(project = project2, skill = django),
-                ProjectSkill(project = project2, skill = kafka)
+                ProjectSkill(project = project2, skill = java),
+                ProjectSkill(project = project2, skill = spring),
+                ProjectSkill(project = project2, skill = mysql)
             )
         )
         projectRepository.saveAll(mutableListOf(project1, project2))
 
         val account = Account(
-            loginId = "admin1",
-            pw = "\$2a\$10\$4pXBHN99iBeatKUlXQnnyOWRJ5OMQ1TjesJsahn2UI41NJw6GIFEG"
+            loginId = "admin",
+            pw = "\$2a\$10\$COhz1izNGlKq4CziNKXX8ObnEgBgY6DUBTmCdq7XE4hukC4shX0OC"
         )
         accountRepository.save(account)
     }
